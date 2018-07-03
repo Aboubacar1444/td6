@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% block param %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>{% block titre %}{% endblock %}</title>
+   <link rel="stylesheet" href="{{asset('dist/css/bootstrap.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css" />
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon" />
+   {% endblock %}
+   
+   {% block cssP %}{% endblock %}
+   {% block jsP %}{% endblock %}
+</head>
+<body>
+{% block head2 %}
+    <header>
+        <h1>Panneau d'administration - Pizza</h1>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-contents">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{path('add_pizza')}}"><i class="glyphicon glyphicon-plus"></i> Ajouter une pizza</a></li>
+                    <li><a href="{{path('add_ingredient')}}"><i class="glyphicon glyphicon-plus"></i> Ajouter un ingredient</a></li>
+                    {# <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Commander</a></li> #}
+                </ul>
+
+                <div class="navbar-login">
+                    <div class="input-group">
+                       <legend>{{app.user}}</legend>     
+                    </div>
+                    <div class="input-group">
+                      <a name="logout" id="logout" class="btn btn-danger" href="{{path('logout')}}" role="button">Déconnexion</a>      
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+{% endblock %}
+{% block content %}{% endblock %}   
+{% block jsP2 %}{% endblock %}
+</body>
+</html>
